@@ -55,7 +55,7 @@ python scripts/build_release.py
 3. 生成 SHA-256 校验文件；
 4. 创建 `v<版本>` 标签和 GitHub Release，并附上两个发布文件。
 
-发布版本以仓库根目录的 [VERSION](VERSION) 为唯一来源。已存在的版本标签不会被覆盖。
+发布下一版前，在同一个提交中更新根目录的 [VERSION](VERSION) 和模块清单 `addons/tdm_web_responsive_v8/__openerp__.py` 中的 `version`；工作流会核对两者一致，并用 `VERSION` 生成标签。已存在的版本标签不会被覆盖。
 
 ## 贡献
 
