@@ -1,0 +1,6 @@
+services:
+  odoo:
+    volumes:
+      - ${ODOO_ADDONS_UNION_HOST_PATH:?set ODOO_ADDONS_UNION_HOST_PATH}:/mnt/extra-addons:ro
+      - ${ODOO_BASE_ADDONS_HOST_PATH:?set ODOO_BASE_ADDONS_HOST_PATH}:/mnt/base-addons:ro
+      - ${RESPONSIVE_ADDONS_HOST_PATH:?set RESPONSIVE_ADDONS_HOST_PATH}:/mnt/responsive-addons:ro

@@ -1,0 +1,315 @@
+/* Copyright 2026 TDM - LGPL-3.0-or-later */
+
+.tdm_mobile_sidebar_toggle {
+    display: none;
+}
+
+.tdm_mobile_menu_backdrop {
+    display: none;
+}
+
+@media screen and (max-width: 991px) {
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    body.tdm_mobile_menu_open {
+        overflow: hidden;
+    }
+
+    #oe_main_menu_navbar {
+        min-height: 50px;
+        margin-bottom: 0;
+    }
+
+    #oe_main_menu_navbar .navbar-header {
+        min-height: 50px;
+    }
+
+    #oe_main_menu_navbar .navbar-toggle {
+        margin: 8px 10px 8px 0;
+    }
+
+    .tdm_mobile_sidebar_toggle {
+        display: inline-block;
+        min-width: 72px;
+        min-height: 42px;
+        margin: 4px 0 4px 10px;
+        padding: 8px 12px;
+        border: 1px solid #555;
+        border-radius: 4px;
+        background: transparent;
+        color: #fff;
+        font-size: 15px;
+        line-height: 24px;
+        vertical-align: middle;
+    }
+
+    .tdm_mobile_sidebar_toggle:focus,
+    .tdm_mobile_sidebar_toggle:hover {
+        border-color: #999;
+        background: #333;
+        outline: 2px solid transparent;
+    }
+
+    .tdm_mobile_sidebar_toggle .fa {
+        margin-right: 7px;
+    }
+
+    .openerp.openerp_webclient_container {
+        height: calc(100% - 50px);
+        overflow: hidden;
+    }
+
+    .openerp .oe_webclient,
+    .openerp .oe_webclient > tbody,
+    .openerp .oe_webclient > tbody > tr {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .openerp .oe_leftbar {
+        position: fixed;
+        z-index: 1205;
+        top: 50px;
+        bottom: 0;
+        left: -90vw;
+        display: block !important;
+        width: 86vw !important;
+        max-width: 320px;
+        height: auto;
+        overflow: hidden;
+        border-right: 1px solid #999;
+        box-shadow: 3px 0 12px rgba(0, 0, 0, 0.35);
+        transition: left 180ms ease-out;
+    }
+
+    body.tdm_mobile_menu_open .openerp .oe_leftbar {
+        left: 0;
+    }
+
+    .openerp .oe_leftbar > div {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .openerp .oe_leftbar > div > div > div > div.oe_secondary_menus_container {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .openerp .oe_leftbar a.oe_menu_leaf,
+    .openerp .oe_leftbar a.oe_menu_toggler,
+    .openerp .oe_leftbar .oe_secondary_menu_section {
+        min-height: 42px;
+        padding-top: 11px;
+        padding-bottom: 9px;
+        line-height: 20px;
+    }
+
+    .openerp .oe_leftbar .oe_menu_text {
+        white-space: normal;
+    }
+
+    .tdm_mobile_menu_backdrop {
+        position: fixed;
+        z-index: 1200;
+        top: 50px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.42);
+    }
+
+    body.tdm_mobile_menu_open .tdm_mobile_menu_backdrop {
+        display: block;
+    }
+
+    .openerp .oe_application {
+        display: block !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        height: 100%;
+    }
+
+    .openerp .oe_application > div,
+    .openerp .oe_view_manager,
+    .openerp .oe_view_manager_wrapper,
+    .openerp .oe_view_manager_wrapper > div {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .openerp .oe_view_manager_current > .oe_view_manager_header {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .openerp .oe_view_manager_current > .oe_view_manager_header table {
+        min-width: 560px;
+    }
+
+    .openerp .oe_view_manager_body {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .openerp .oe_form_sheet_width,
+    .openerp .oe_form div.oe_chatter {
+        width: auto;
+        min-width: 0;
+        max-width: none;
+        margin-right: 8px;
+        margin-left: 8px;
+    }
+
+    .openerp .oe_form_sheet {
+        min-height: 0;
+        padding: 12px;
+    }
+
+    .openerp .oe_form_sheetbg {
+        padding: 8px 0;
+    }
+
+    .openerp .oe_form .oe_form_field,
+    .openerp .oe_form input,
+    .openerp .oe_form textarea,
+    .openerp .oe_form select,
+    .openerp .oe_form .select2-container {
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .openerp .oe_form header,
+    .openerp .oe_form .oe_button_box,
+    .openerp .oe_form .oe_form_statusbar {
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .openerp .oe_form .oe_form_statusbar ul,
+    .openerp .oe_form ul.oe_form_status,
+    .openerp .oe_form ul.oe_form_status_clickable {
+        float: none;
+        min-width: max-content;
+    }
+
+    .openerp .oe_list,
+    .openerp .oe_form_field_one2many,
+    .openerp .oe_form_field_many2many {
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .openerp .oe_list_content {
+        min-width: 640px;
+    }
+
+    .openerp .oe_kanban_view .oe_kanban_record,
+    .openerp .oe_kanban_view .oe_kanban_quick_create {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .modal-dialog,
+    .oe_dialog .modal-dialog {
+        width: auto !important;
+        max-width: calc(100vw - 20px);
+        margin: 10px;
+    }
+
+    .modal-body,
+    .oe_dialog .modal-body {
+        max-height: calc(100vh - 150px);
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .openerp button,
+    .openerp .oe_button,
+    .openerp .oe_list_button,
+    .openerp .oe_form_button {
+        min-height: 36px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #oe_main_menu_navbar .navbar-collapse {
+        position: absolute;
+        z-index: 1210;
+        top: 50px;
+        right: 0;
+        left: 0;
+        max-height: calc(100vh - 50px);
+        overflow-y: auto;
+        background: #222;
+    }
+
+    #oe_main_menu_placeholder .navbar-nav {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    #oe_main_menu_placeholder .navbar-nav > li > a {
+        min-height: 44px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .openerp .oe_form_sheet_width,
+    .openerp .oe_form div.oe_chatter {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .openerp .oe_application .oe_form_sheet {
+        border-right: 0;
+        border-left: 0;
+        box-shadow: none;
+    }
+
+    .openerp .oe_form_nosheet {
+        margin: 8px;
+    }
+
+    .openerp .oe_notebook.ui-tabs .ui-tabs-nav {
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .openerp .oe_notebook.ui-tabs .ui-tabs-nav > li {
+        display: inline-block;
+        float: none;
+    }
+
+    .openerp .oe_kanban_view .oe_kanban_record,
+    .openerp .oe_kanban_view .oe_kanban_quick_create {
+        float: none;
+        width: calc(100% - 12px) !important;
+        margin: 6px;
+    }
+
+    .openerp .oe_searchview {
+        max-width: calc(100vw - 36px);
+    }
+
+    .openerp .oe_leftbar > div a.oe_logo,
+    .openerp .oe_leftbar > div .oe_footer {
+        display: none;
+    }
+}
+
+@media print {
+    .tdm_mobile_sidebar_toggle,
+    .tdm_mobile_menu_backdrop {
+        display: none !important;
+    }
+}
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="assets_backend"
+                  name="TDM responsive backend assets"
+                  inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet"
+                      href="/tdm_web_responsive_v8/static/src/css/responsive.css"/>
+                <script type="text/javascript"
+                        src="/tdm_web_responsive_v8/static/src/js/responsive.js"></script>
+            </xpath>
+        </template>
+    </data>
+</openerp>
+
