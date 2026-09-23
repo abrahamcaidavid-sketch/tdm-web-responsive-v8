@@ -16,6 +16,7 @@ MODULE_NAME = "tdm_web_responsive_v8"
 MODULE_ROOT = ROOT / "addons" / MODULE_NAME
 VERSION_PATTERN = re.compile(r"^8\.0\.\d+\.\d+\.\d+$")
 ZIP_TIMESTAMP = (2026, 1, 1, 0, 0, 0)
+TEXT_SUFFIXES = {".py", ".js", ".css", ".xml", ".md"}
 
 
 def read_version() -> str:
@@ -34,7 +35,10 @@ def read_version() -> str:
 
 
 def iter_module_files():
-    for path in sorted(MODULE_ROOT.rglob("*")):
+    for path in sorted(
+        MODULE_ROOT.rglob("*"),
+        key=lambda item: item.relative_to(MODULE_ROOT).as_posix().encode("utf-8"),
+    ):
         if not path.is_file():
             continue
         if "__pycache__" in path.parts or path.suffix in {".pyc", ".pyo"}:
@@ -52,7 +56,10 @@ def write_zip(destination: Path) -> None:
             info.compress_type = zipfile.ZIP_STORED
             info.create_system = 3
             info.external_attr = 0o100644 << 16
-            archive.writestr(info, path.read_bytes())
+            data = path.read_bytes()
+            if path.suffix in TEXT_SUFFIXES:
+                data = data.replace(b"\r\n", b"\n")
+            archive.writestr(info, data)
 
 
 def main() -> None:
