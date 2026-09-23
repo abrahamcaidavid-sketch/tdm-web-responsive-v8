@@ -43,18 +43,16 @@ def iter_module_files():
 
 
 def write_zip(destination: Path) -> None:
-    with zipfile.ZipFile(
-        destination, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9
-    ) as archive:
+    with zipfile.ZipFile(destination, "w", compression=zipfile.ZIP_STORED) as archive:
         for path in iter_module_files():
             relative = path.relative_to(MODULE_ROOT)
             info = zipfile.ZipInfo(
                 (Path(MODULE_NAME) / relative).as_posix(), ZIP_TIMESTAMP
             )
-            info.compress_type = zipfile.ZIP_DEFLATED
+            info.compress_type = zipfile.ZIP_STORED
             info.create_system = 3
             info.external_attr = 0o100644 << 16
-            archive.writestr(info, path.read_bytes(), compresslevel=9)
+            archive.writestr(info, path.read_bytes())
 
 
 def main() -> None:
